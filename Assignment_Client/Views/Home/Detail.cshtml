@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Assignment_Client.Models.Comment>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="inner-banner">
+
+
+</div>
+<!-- //banner-text -->
+<!--Gallery-->
+<section class="gallery py-lg-5">
+    <div class="container py-5">
+        <div class="title-section pb-sm-5 pb-3">
+            <h2 class="heading-agileinfo text-center pb-4">Our <span> Gallery</span></h2>
+        </div>
+
+            <div class="row">
+                <div class="col-lg-9">
+                    @foreach (var item in ViewBag.listImage)
+                    {
+                        <div class="col-md-6 gal-sec">
+                            <div class="gallery-grid1" style="margin-bottom:30px">
+                                <img src="~/Assets/Client/images/@item.Image1" alt=" " class="img-fluid" />
+                                <div class="p-mask">
+                                    <h4>Vagabond</h4>
+                                    <p>Gallery</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-lg-3">
+                    @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+                    {
+                        <input type="number" value="0" style="margin-bottom:10px" /><hr />
+                        <textarea rows="3" cols="30"></textarea><hr />
+                        <button type="submit" class="btn-success">Comment</button>
+                    }
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>List Comment:</p>
+                    @foreach (var cm in ViewBag.listComment)
+                    {
+                        <p>@cm.Comment1</p>
+                    }
+                </div>
+            </div>
+
+            </div>
+</section>
+<!--//Gallery-->

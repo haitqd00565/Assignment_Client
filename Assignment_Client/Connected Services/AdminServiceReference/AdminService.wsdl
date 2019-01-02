@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:53882/Admin/AdminService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:53882/Admin/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:53882/Admin/AdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Assignment_WebService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminService_GetAdminList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminList" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAdminList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_LoginAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_LoginAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCatePlaceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatePlaceList" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCatePlaceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatePlaceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddCatePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCatePlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddCatePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCatePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatePlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCatePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCatePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCatePlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCatePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPlaceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceList" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPlaceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdatePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdatePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeletePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlace" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeletePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageList" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImageListById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageListById" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImageListById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddImage" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AddImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateImage" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImage" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPlaceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceById" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPlaceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdminService">
+    <wsdl:operation name="GetAdminList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAdminList" message="tns:IAdminService_GetAdminList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAdminListResponse" message="tns:IAdminService_GetAdminList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AddAdmin" message="tns:IAdminService_AddAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AddAdminResponse" message="tns:IAdminService_AddAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateAdmin" message="tns:IAdminService_UpdateAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateAdminResponse" message="tns:IAdminService_UpdateAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteAdmin" message="tns:IAdminService_DeleteAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteAdminResponse" message="tns:IAdminService_DeleteAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/LoginAdmin" message="tns:IAdminService_LoginAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/LoginAdminResponse" message="tns:IAdminService_LoginAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatePlaceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCatePlaceList" message="tns:IAdminService_GetCatePlaceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCatePlaceListResponse" message="tns:IAdminService_GetCatePlaceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCatePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AddCatePlace" message="tns:IAdminService_AddCatePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AddCatePlaceResponse" message="tns:IAdminService_AddCatePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCatePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCatePlace" message="tns:IAdminService_UpdateCatePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCatePlaceResponse" message="tns:IAdminService_UpdateCatePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCatePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCatePlace" message="tns:IAdminService_DeleteCatePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCatePlaceResponse" message="tns:IAdminService_DeleteCatePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetPlaceList" message="tns:IAdminService_GetPlaceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetPlaceListResponse" message="tns:IAdminService_GetPlaceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AddPlace" message="tns:IAdminService_AddPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AddPlaceResponse" message="tns:IAdminService_AddPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdatePlace" message="tns:IAdminService_UpdatePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdatePlaceResponse" message="tns:IAdminService_UpdatePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeletePlace" message="tns:IAdminService_DeletePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeletePlaceResponse" message="tns:IAdminService_DeletePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetImageList" message="tns:IAdminService_GetImageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetImageListResponse" message="tns:IAdminService_GetImageList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetImageListById" message="tns:IAdminService_GetImageListById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetImageListByIdResponse" message="tns:IAdminService_GetImageListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AddImage" message="tns:IAdminService_AddImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AddImageResponse" message="tns:IAdminService_AddImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateImage" message="tns:IAdminService_UpdateImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateImageResponse" message="tns:IAdminService_UpdateImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteImage" message="tns:IAdminService_DeleteImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteImageResponse" message="tns:IAdminService_DeleteImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetPlaceById" message="tns:IAdminService_GetPlaceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetPlaceByIdResponse" message="tns:IAdminService_GetPlaceById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdminService" type="tns:IAdminService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAdminList">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAdminList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AddAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/LoginAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatePlaceList">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCatePlaceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCatePlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AddCatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCatePlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCatePlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceList">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetPlaceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AddPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlace">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeletePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageList">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetImageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListById">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetImageListById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddImage">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AddImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceById">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetPlaceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminService">
+    <wsdl:port name="BasicHttpBinding_IAdminService" binding="tns:BasicHttpBinding_IAdminService">
+      <soap:address location="http://localhost:53882/Admin/AdminService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

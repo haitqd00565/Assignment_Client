@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Assignment_WebServiceModelStoreContainer" CdmEntityContainer="Assignment_WebServiceEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProvindsId" ColumnName="ProvindsId" />
+          <ScalarProperty Name="DistrictsId" ColumnName="DistrictsId" />
+          <ScalarProperty Name="WardsId" ColumnName="WardsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryPlaces">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.CategoryPlace">
+        <MappingFragment StoreEntitySet="CategoryPlace">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.District">
+        <MappingFragment StoreEntitySet="Districts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProvindsId" ColumnName="ProvindsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Image1" ColumnName="Image" />
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Place">
+        <MappingFragment StoreEntitySet="Place">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CategoryPlaceId" ColumnName="CategoryPlaceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinds">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Provind">
+        <MappingFragment StoreEntitySet="Provinds">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubComments">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.SubComment">
+        <MappingFragment StoreEntitySet="SubComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wards">
+      <EntityTypeMapping TypeName="Assignment_WebServiceModel.Ward">
+        <MappingFragment StoreEntitySet="Wards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DistrictsId" ColumnName="DistrictsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

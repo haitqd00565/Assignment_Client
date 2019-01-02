@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Assignment_WebServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProvindsId" Type="int" />
+          <Property Name="DistrictsId" Type="int" />
+          <Property Name="WardsId" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="CategoryPlace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="Status" Type="int" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProvindsId" Type="int" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="250" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Information" Type="text" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CategoryPlaceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provinds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Point" Type="int" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="CommentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Wards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="DistrictsId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Address_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="DistrictsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Provinds">
+          <End Role="Provinds" Type="Self.Provinds" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinds">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProvindsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Wards">
+          <End Role="Wards" Type="Self.Wards" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="WardsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Provinds">
+          <End Role="Provinds" Type="Self.Provinds" Multiplicity="0..1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinds">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="ProvindsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wards_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="0..1" />
+          <End Role="Wards" Type="Self.Wards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wards">
+              <PropertyRef Name="DistrictsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Assignment_WebServiceModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryPlace" EntityType="Self.CategoryPlace" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinds" EntityType="Self.Provinds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubComment" EntityType="Self.SubComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wards" EntityType="Self.Wards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Districts" Association="Self.FK_Address_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Provinds" Association="Self.FK_Address_Provinds">
+            <End Role="Provinds" EntitySet="Provinds" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Wards" Association="Self.FK_Address_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Provinds" Association="Self.FK_Districts_Provinds">
+            <End Role="Provinds" EntitySet="Provinds" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wards_Districts" Association="Self.FK_Wards_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Wards" EntitySet="Wards" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Assignment_WebServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvindsId" Type="Int32" />
+          <Property Name="DistrictsId" Type="Int32" />
+          <Property Name="WardsId" Type="Int32" />
+          <NavigationProperty Name="District" Relationship="Self.FK_Address_Districts" FromRole="Address" ToRole="Districts" />
+          <NavigationProperty Name="Provind" Relationship="Self.FK_Address_Provinds" FromRole="Address" ToRole="Provinds" />
+          <NavigationProperty Name="Ward" Relationship="Self.FK_Address_Wards" FromRole="Address" ToRole="Wards" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CategoryPlace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProvindsId" Type="Int32" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Districts" FromRole="Districts" ToRole="Address" />
+          <NavigationProperty Name="Provind" Relationship="Self.FK_Districts_Provinds" FromRole="Districts" ToRole="Provinds" />
+          <NavigationProperty Name="Wards" Relationship="Self.FK_Wards_Districts" FromRole="Districts" ToRole="Wards" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CategoryPlaceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provind">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Provinds" FromRole="Provinds" ToRole="Address" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK_Districts_Provinds" FromRole="Provinds" ToRole="Districts" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Point" Type="Int32" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictsId" Type="Int32" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Wards" FromRole="Wards" ToRole="Address" />
+          <NavigationProperty Name="District" Relationship="Self.FK_Wards_Districts" FromRole="Wards" ToRole="Districts" />
+        </EntityType>
+        <Association Name="FK_Address_Districts">
+          <End Role="Districts" Type="Self.District" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="DistrictsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Provinds">
+          <End Role="Provinds" Type="Self.Provind" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinds">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProvindsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Wards">
+          <End Role="Wards" Type="Self.Ward" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="WardsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Provinds">
+          <End Role="Provinds" Type="Self.Provind" Multiplicity="0..1" />
+          <End Role="Districts" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinds">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="ProvindsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wards_Districts">
+          <End Role="Districts" Type="Self.District" Multiplicity="0..1" />
+          <End Role="Wards" Type="Self.Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wards">
+              <PropertyRef Name="DistrictsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Assignment_WebServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="CategoryPlaces" EntityType="Self.CategoryPlace" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Districts" EntityType="Self.District" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Places" EntityType="Self.Place" />
+          <EntitySet Name="Provinds" EntityType="Self.Provind" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="SubComments" EntityType="Self.SubComment" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Wards" EntityType="Self.Ward" />
+          <AssociationSet Name="FK_Address_Districts" Association="Self.FK_Address_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Provinds" Association="Self.FK_Address_Provinds">
+            <End Role="Provinds" EntitySet="Provinds" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Wards" Association="Self.FK_Address_Wards">
+            <End Role="Wards" EntitySet="Wards" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Provinds" Association="Self.FK_Districts_Provinds">
+            <End Role="Provinds" EntitySet="Provinds" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wards_Districts" Association="Self.FK_Wards_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Wards" EntitySet="Wards" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Assignment_WebServiceModelStoreContainer" CdmEntityContainer="Assignment_WebServiceEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProvindsId" ColumnName="ProvindsId" />
+                <ScalarProperty Name="DistrictsId" ColumnName="DistrictsId" />
+                <ScalarProperty Name="WardsId" ColumnName="WardsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryPlaces">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.CategoryPlace">
+              <MappingFragment StoreEntitySet="CategoryPlace">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.District">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvindsId" ColumnName="ProvindsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Image1" ColumnName="Image" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Place">
+              <MappingFragment StoreEntitySet="Place">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryPlaceId" ColumnName="CategoryPlaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinds">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Provind">
+              <MappingFragment StoreEntitySet="Provinds">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubComments">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.SubComment">
+              <MappingFragment StoreEntitySet="SubComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="Assignment_WebServiceModel.Ward">
+              <MappingFragment StoreEntitySet="Wards">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictsId" ColumnName="DistrictsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

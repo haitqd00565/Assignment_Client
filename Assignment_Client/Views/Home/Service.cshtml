@@ -1,0 +1,89 @@
+﻿@model Assignment_Client.Models.Image
+
+@{
+    ViewBag.Title = "Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- banner -->
+<div class="inner-banner">
+    
+
+</div>
+<!-- //banner-text -->
+<div class="agileits-services py-lg-5">
+    <div class="container py-5">
+        <div class="title-section pb-sm-5 pb-3">
+            <h2 class="heading-agileinfo text-center pb-4">Our <span> Services</span></h2>
+        </div>
+        <div class="agileits-services-row row text-center">
+            <div class="col-lg-3 col-md-6">
+                <div class="agileits-services-grids">
+                    <i class="fas fa-plane"></i>
+                    <h4>
+                        Flights
+                    </h4>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eum inventore consectetur. </p>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="agileits-services-grids mt-lg-0 mt-md-0 mt-5">
+                    <i class="fas fa-bus"></i>
+                    <h4>
+                        Buses
+                    </h4>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eum inventore consectetur. </p>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="agileits-services-grids mt-lg-0 mt-5">
+                    <i class="fas fa-key"></i>
+                    <h4>
+                        Hotels
+                    </h4>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eum inventore consectetur.</p>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6  mt-lg-0 mt-5">
+                <div class="agileits-services-grids">
+                    <i class="fas fa-train"></i>
+                    <h4>
+                        Train
+                    </h4>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eum inventore consectetur.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- promotions -->
+<section class="wthree-row w3-about py-lg-5">
+    <div class="container py-5">
+        <div class="title-section pb-sm-5 pb-3">
+            <h3 class="heading-agileinfo text-center pb-4">Services <span> Overview</span></h3>
+        </div>
+        <div class="card-deck">
+            @foreach (var item in ViewBag.listPlace)
+            {
+                var url = "/chi-tiet-dia-diem" + "-" + item.Id;
+                <div class="card">
+                    <img src="~/Assets/Client/images/@item.Avatar" class="img-fluid" alt="Card image cap">
+                    <div class="card-body w3ls-card">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text mb-3"><i class="fas fa-map-marker pr-2"></i>Netherlands / Belgium</p>
+                        <p class="card-text mb-3"><i class="far fa-clock pr-2"></i>3 days - 2 nights</p>
+                        <a href="@url" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- //promotions -->
